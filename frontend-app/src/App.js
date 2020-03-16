@@ -18,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <button>Meow, I'm a cat</button>
       </header>
     </div>
   );
