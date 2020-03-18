@@ -32,12 +32,13 @@ function App() {
     }
   };
   const solve =() => {
-    // setResult?? <= pista!
+    setResult(eval(number1 + operation + number2));
   };
   return (
     <div className="App">
         <CleanButton onClick={cleanNumber} />
         <Display content={number1 + operation + number2} />
+        <Display content={result} />
         <DialButton value={7} onClick={addNumber} />
         <DialButton value={8} onClick={addNumber} />
         <DialButton value={9} onClick={addNumber} />
