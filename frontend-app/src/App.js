@@ -1,31 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {CleanButton, DialButton} from "./DialButton";
+
+const Display = props => {
+  return <div className="App-display">{props.content}</div>
+};
 
 function App() {
-  const [username, setUsername] = React.useState('');
+  const [number, setNumber] = React.useState('');
+  const [operation, setOperation] = React.useState('');
+  const addNumber = n => setNumber(number + '' + n);
+  const cleanNumber = () => setNumber('');
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Welcome <code>{username}</code> to NDS
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>Username</p>
-        <input onChange={event => setUsername(event.target.value)} type="text" />
-        <p>Email</p>
-        <input type="email" />
-        <p>Password</p>
-        <input type="password" />
-        <button disabled={username === ''}>Signup</button>
-      </header>
+        <CleanButton number={number} onClick={cleanNumber} />
+        <Display content={number} />
+        <DialButton value={7} onClick={addNumber} />
+        <DialButton value={8} onClick={addNumber} />
+        <DialButton value={9} onClick={addNumber} />
+        <DialButton value="+" onClick={setOperation} />
+        <DialButton value={4} onClick={addNumber} />
+        <DialButton value={5} onClick={addNumber} />
+        <DialButton value={6} onClick={addNumber} />
+        <DialButton value="-" onClick={setOperation} />
+        <DialButton value={1} onClick={addNumber} />
+        <DialButton value={2} onClick={addNumber} />
+        <DialButton value={3} onClick={addNumber} />
+        <DialButton value="*" onClick={setOperation} />
+        <DialButton value={0} onClick={addNumber} />
+        <DialButton value="." onClick={addNumber} />
+        <DialButton value={9} onClick={addNumber} />
+        <DialButton value="/" onClick={setOperation} />
     </div>
   );
 }
