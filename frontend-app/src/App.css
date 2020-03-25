@@ -6,3 +6,6 @@
 .App-display {
   grid-column: 2/5;
 }
+.Container {
+  display: flex;
+}
