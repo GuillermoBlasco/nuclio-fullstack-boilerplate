@@ -1,5 +1,37 @@
 
 .DialButton {
-    width: 40px;
-    height: 40px;
+    height: 65px;
+    background: #000000;
+    color: white;
+    font-size: 24px;
+    border: none;
+    transition: background-color 300ms ease-in-out;
+}
+.DialButton:focus {
+    outline: none;
+}
+.DialButton:hover {
+    background: #383838;
+}
+.DialButton:active {
+    background: #787878;
+}
+.DialButton--secondary {
+    color: darkorange;
+}
+.DialButton--secondary-action {
+    color: white;
+    background: darkorange;
+    border-radius: 639px;
+    margin: 5px;
+}
+
+.DialButton--secondary-action:focus {
+    outline: none;
+}
+.DialButton--secondary-action:hover {
+    background: #ff9d31;
+}
+.DialButton--secondary-action:active {
+    background: #ffb165;
 }

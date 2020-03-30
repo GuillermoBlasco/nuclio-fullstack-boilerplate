@@ -1,11 +1,27 @@
-.App {
-  max-width: 300px;
+.Buttons {
+  border-top: 1px darkgray solid;
   display: grid;
   grid-template-columns: auto auto auto auto;
 }
-.App-display {
-  grid-column: 2/5;
+.Display {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
+}
+.Display-content {
+  font-size: 46px;
+  text-align: end;
 }
 .Container {
   display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 300px;
+  background: black;
+  color: white;
+}
+.Canvas {
+  display: flex;
+  justify-content: center;
 }

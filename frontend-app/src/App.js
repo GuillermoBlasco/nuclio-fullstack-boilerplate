@@ -3,7 +3,11 @@ import './App.css';
 import {CleanButton, DialButton} from "./DialButton";
 
 const Display = props => {
-  return <div className="App-display">{props.content}</div>
+  return (<div className="Display">
+    <div className="Display-content">
+      {props.content}
+    </div>
+  </div>);
 };
 
 function App() {
@@ -66,31 +70,34 @@ function App() {
       setResult('');
     };
   };
-  debugger;
   return (
-    <div className="Container">
-      <div className="App">
-          <CleanButton onClick={cleanNumber} />
-          <Display content={result ? result : number1 + operation + number2} />
-          <DialButton value={7} onClick={addNumber} />
-          <DialButton value={8} onClick={addNumber} />
-          <DialButton value={9} onClick={addNumber} />
-          <DialButton value="+" onClick={addOperation} />
-          <DialButton value={4} onClick={addNumber} />
-          <DialButton value={5} onClick={addNumber} />
-          <DialButton value={6} onClick={addNumber} />
-          <DialButton value="-" onClick={addOperation} />
-          <DialButton value={1} onClick={addNumber} />
-          <DialButton value={2} onClick={addNumber} />
-          <DialButton value={3} onClick={addNumber} />
-          <DialButton value="*" onClick={addOperation} />
-          <DialButton value={0} onClick={addNumber} />
-          <DialButton value="." onClick={addNumber} />
-          <DialButton value={9} onClick={addNumber} />
-          <DialButton value="/" onClick={addOperation} />
-        <button disabled={!canSolve} onClick={solve}>=</button>
+    <div className="Canvas">
+      <div className="Container">
+        <Display content={result ? result : number1 + operation + number2} />
+        <div className="Buttons">
+            <DialButton secondary value="AC" onClick={cleanNumber} />
+            <DialButton value=" " onClick={() => {}} />
+            <DialButton value=" " onClick={() => {}} />
+            <DialButton secondary value="÷" onClick={addOperation} />
+            <DialButton value={7} onClick={addNumber} />
+            <DialButton value={8} onClick={addNumber} />
+            <DialButton value={9} onClick={addNumber} />
+            <DialButton secondary value="x" onClick={addOperation} />
+            <DialButton value={4} onClick={addNumber} />
+            <DialButton value={5} onClick={addNumber} />
+            <DialButton value={6} onClick={addNumber} />
+            <DialButton secondary value="-" onClick={addOperation} />
+            <DialButton value={1} onClick={addNumber} />
+            <DialButton value={2} onClick={addNumber} />
+            <DialButton value={3} onClick={addNumber} />
+            <DialButton secondary value="+" onClick={addOperation} />
+            <DialButton value=" " onClick={() => {}} />
+            <DialButton value={0} onClick={addNumber} />
+            <DialButton value="." onClick={addNumber} />
+          <DialButton secondary action value="="  disabled={!canSolve} onClick={solve} />
+        </div>
+        <div>{history.map(x => <div onClick={handleHistoryClick(x)}>{x.number1 + x.operation + x.number2 + "=" + x.result}</div>)}</div>
       </div>
-      <div>{history.map(x => <div onClick={handleHistoryClick(x)}>{x.number1 + x.operation + x.number2 + "=" + x.result}</div>)}</div>
     </div>
   );
 }
